@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "dmgdec"
+version = "0.1"
+description = "A Python library/CLI tool for decrypting IPSW DMGs."
+authors = ["m1stadev <adamhamdi31@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/m1stadev/dmgdec"
+
+#[tool.poetry.scripts]
+#dmgdec = "dmgdec.__main__:main"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.ruff.lint]
+extend-select = ["I"]
+
+[tool.ruff.format]
+quote-style = "single"
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/m1stadev/dmgdec/issues"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
