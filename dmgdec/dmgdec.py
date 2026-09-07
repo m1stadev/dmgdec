@@ -1,6 +1,6 @@
 import struct
 from pathlib import Path
-from typing import BinaryIO, Optional, Union
+from typing import BinaryIO
 
 import Crypto.Hash.HMAC
 import Crypto.Hash.SHA1
@@ -11,8 +11,8 @@ class DMG:
     def __init__(
         self,
         *,
-        filename: Optional[Union[str, Path]] = None,
-        fd: Optional[BinaryIO] = None,
+        filename: str | Path | None = None,
+        fd: BinaryIO | None = None,
     ) -> None:
         if filename:
             self._fd = open(filename, 'rb')
@@ -52,7 +52,7 @@ class DMG:
         return self._key_data
 
     @key.setter
-    def key(self, data: Union[str, bytes]):
+    def key(self, data: str | bytes):
         if isinstance(data, str):
             data = bytes.fromhex(str)
 
