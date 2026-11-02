@@ -41,8 +41,7 @@ def main(input_: BinaryIO, key: str, output: BinaryIO) -> None:
     dmg.key = bytes.fromhex(key)
 
     click.echo(f'Outputting to {output.name}...')
-    for block in trange(dmg.nrblocks):
-        output.write(dmg.read_block(block))
+    output.writelines(dmg.read_block(block) for block in trange(dmg.nrblocks))
 
     click.echo('Done!')
 
